@@ -42,10 +42,28 @@ function wordSelector(wordString){
   });
 
   //Populate an array of the words with the highest counts
-  var winningWordsArray = []
+  var winningWordsArray = [];
+  var winningNumber = 1;
+
+  //iterate over object of word:highestNum pairs
   for (var key in wordsByNumCount){
-    console.log('The key is: ' + key + " The number is: " + wordsByNumCount[key]);
+
+    //Check if we have a new highest number and erase previous winners if so
+    console.log("wordcount: " + wordsByNumCount[key] + "winingNum: " + winningNumber);
+    if(wordsByNumCount[key] > winningNumber){
+      winningWordsArray = [];
+      winningNumber = wordsByNumCount[key];
+    }
+
+    //Check if that word's number is a winner and if so push it into winnersArray
+
+    if(wordsByNumCount[key] === winningNumber){
+      winningWordsArray.push(key.toString());
+    }
+
   }
+
+  console.log(winningWordsArray);
   // console.log(wordsByNumCount);
 }
 
