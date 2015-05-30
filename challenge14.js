@@ -65,15 +65,9 @@ function wordSelector(wordString){
 
   }
 
-  console.log("The words with the most repeated letters in this string are:");
-  console.log(winningWordsArray);
-  // console.log(wordsByNumCount);
+
+  return(winningWordsArray);
 }
 
-
-
-
-
-
-wordSelector('Lorem Ipsum is simply dummy text of the printing and typesetting industry. ')
-wordSelector('I attribute my success to this: I never gave or took any excuse. –Florence Nightingale');
+console.log(wordSelector('Lorem Ipsum is simply dummy text of the printing and typesetting industry. '))
+console.log(wordSelector('I attribute my success to this: I never gave or took any excuse. –Florence Nightingale'));
