@@ -2,6 +2,8 @@
 //
 // If the sentence has multiple words with the same max of repeated letters, return them all in an Array.
 //
+// Test Case:
+//
 // wordSelector("I attribute my success to this: I never gave or took any excuse. –Florence Nightingale")
 //
 // Would select the words:
@@ -21,7 +23,6 @@ function wordSelector(wordString){
 
     // for each letter...
     ArrayOfLetters.forEach(function(letter, letterIndex){
-      // console.log('letter: ' + letterIndex + ' is ' + letter);
 
       // Read the letter and increment the appropriate Object Key
       if(count[letter] === undefined){
@@ -41,21 +42,22 @@ function wordSelector(wordString){
 
   });
 
-  //Populate an array of the words with the highest counts
+  // end of word loops, lets find the winner in wordsByNumCount
+
+  // Populate an array of the words with the highest counts
   var winningWordsArray = [];
   var winningNumber = 1;
 
-  //iterate over object of word:highestNum pairs
+  // iterate over object of word:highestNum pairs
   for (var key in wordsByNumCount){
 
-    //Check if we have a new highest number and erase previous winners if so
-    console.log("wordcount: " + wordsByNumCount[key] + "winingNum: " + winningNumber);
+    // Check if we have a new highest number and erase previous winners if so
     if(wordsByNumCount[key] > winningNumber){
       winningWordsArray = [];
       winningNumber = wordsByNumCount[key];
     }
 
-    //Check if that word's number is a winner and if so push it into winnersArray
+    // Check if that word's number is a winner and if so push it into winnersArray
 
     if(wordsByNumCount[key] === winningNumber){
       winningWordsArray.push(key.toString());
@@ -63,6 +65,7 @@ function wordSelector(wordString){
 
   }
 
+  console.log("The words with the most repeated letters in this string are:");
   console.log(winningWordsArray);
   // console.log(wordsByNumCount);
 }
@@ -72,5 +75,5 @@ function wordSelector(wordString){
 
 
 
-
+wordSelector('Lorem Ipsum is simply dummy text of the printing and typesetting industry. ')
 wordSelector('I attribute my success to this: I never gave or took any excuse. –Florence Nightingale');
